@@ -31,9 +31,3 @@ object TestApp extends App {
   println(value)
 
 }
-
-class Hello {
-  def hello() = {
-    println("hello")
-  }
-}
