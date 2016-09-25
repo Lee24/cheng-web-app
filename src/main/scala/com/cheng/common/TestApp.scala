@@ -10,7 +10,8 @@ case class SqlResult(name: List[String], value: List[List[String]])
 
 object TestApp extends App {
   println("lo")
-  Class.forName("com.mysql.cj.jdbc.Driver").newInstance()
+//  Class.forName("com.mysql.cj.jdbc.Driver").newInstance()
+  Class.forName("com.mysql.jdbc.Driver").newInstance()
   val conn = DriverManager.getConnection("jdbc:mysql://chenglee.picp.io:3306/mysql?user=root&password=Cheng@1220")
   val statement = conn.createStatement()
   val result: ResultSet = statement.executeQuery("select * from user")
