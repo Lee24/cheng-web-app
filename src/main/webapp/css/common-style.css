@@ -1,0 +1,21 @@
+/*固定宽度*/
+.container {
+    width: 1000px !important;
+    min-width: 1000px !important;
+    max-width: 1000px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bodyBackground{
+    background-color: #F1F3FA;
+}
+
+
+.panelBackground{
+    background-color: #FFFFFF;
+}
+
+.blockStyle{
+    display: inline-block;
+}
