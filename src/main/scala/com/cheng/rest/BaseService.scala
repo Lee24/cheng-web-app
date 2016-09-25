@@ -2,6 +2,8 @@ package com.cheng.rest
 
 import akka.actor.Actor
 import com.cheng.Home.{HomeService, UploadFile}
+import org.json4s.DefaultFormats
+import spray.httpx.Json4sSupport
 import spray.routing._
 
 // we don't implement our route structure directly in the service actor because
@@ -16,11 +18,13 @@ class BaseServiceActor extends Actor with BaseService {
   // other things here, like request stream processing
   // or timeout handling
   def receive = runRoute(myRoute)
+
+  override implicit def json4sFormats = DefaultFormats
 }
 
 
 // this trait defines our service behavior independently from the service actor
-trait BaseService extends HttpService {
+trait BaseService extends HttpService with Json4sSupport {
 
   val myRoute =
     path("uploadfile") {
