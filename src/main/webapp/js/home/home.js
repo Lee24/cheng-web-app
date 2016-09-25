@@ -8,23 +8,20 @@ window.onload = function(){
 }
 
 function uploadFileFunc(event){
-    console.log("hello here2");
     var fileReader = new FileReader();
     var file = $('#fileupload_input')[0].files[0];
-    console.log("hello here1");
-    console.log(fileReader.result);
     fileReader.readAsText(file);   //还可以readas其它
-    console.log("hello here0");
-    console.log(fileReader.result);
+    fileReader.onload = function(f){
+        var fileData = fileReader.result;
+        $.ajax({
+            url: 'base/uploadfile',
+            tpye: 'POST',
+            contentTpye: 'application/json',
+            data: fileReader.result
+        }).done(function(data){
 
-    $.ajax({
-        url: '',
-        tpye: 'POST',
-        contentTpye: 'application/json',
-        data: fileReader.result
-    }).done(function(data){
+        }).fail(function(){
 
-    }).fail(function(){
-
-    })
+        })
+    }
 }
